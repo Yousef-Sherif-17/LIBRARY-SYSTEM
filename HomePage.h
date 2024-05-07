@@ -5,18 +5,40 @@
 class HomePage
 {
 
+private:
+
+
 public:
+	
 	HomePage() {
-		std::cout << "1.Client     2.Librarian\n";
+
+		std::cout << "=================== Library ===================\n\n";
+		std::cout << "1.Client     2.Librarian\n\n";
+		std::cout << "Your choice: ";
+		
 		int choice;
-		std::cout << "\n Your choice: ";
-		std::cin >> choice;
-		std::cout << "\n1. borrow a book.		2. return a book. \n 3. search a book.		4. back.\n";
-		if (choice == 1)
+
+		do
 		{
-			Client();
-		}
-		else Librarian();
+			std::cin >> choice;
+			switch (choice)
+			{
+			case 1:
+				std::cout << '\n';
+				new Client();
+				break;
+			case 2:
+				std::cout << '\n';
+				new Librarian();
+				break;
+			default:
+				std::cout << "Choose a number between (1,2): ";
+				break;
+			}
+
+		} while (choice < 1 || choice > 2);
+
+
 	}
 
 };
