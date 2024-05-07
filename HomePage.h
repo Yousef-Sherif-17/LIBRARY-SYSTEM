@@ -9,11 +9,8 @@ public:
 	HomePage() {
 
 		std::cout << "1.Client     2.Librarian\n";
-
-
+		
 	}
-
-
 
 };
 

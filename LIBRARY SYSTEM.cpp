@@ -6,6 +6,6 @@
 int main()
 {
 
-	new HomePage();
+	
 
 }

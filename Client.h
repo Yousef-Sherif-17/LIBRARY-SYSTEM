@@ -7,42 +7,34 @@ class Client
 private:
 
     struct Book {
-
         std::string name;
         std::string auther;
-        int releaseYear;
+        // int releaseYear;
         double price;
-
+    };
+    Book literaryBooks[5] = {
+        {"Pride and Prejudice", "Jane Austen", 5}
+        ,{"1984", "George Orwell", 10}
+        ,{"The Great Gatsby", "F. Scott Fitzgerald", 15}
+        ,{"Jane Eyre", "Brontë", 20}
+        ,{"Crime and Punishment", "Fyodor Dostoevsky", 25}
     };
 
+    
     std::string name;
     long number;
     long long id;
+
+
+
+
 public:
-    void set_name(std::string n)
-    {
-        name = n;
+
+    Client() {
+
+
     }
-    std::string get_name()
-    {
-        return name;
-    }
-    void set_number(long num)
-    {
-        number = num;
-    }
-    long get_number()
-    {
-        return number;
-    }
-    void set_id(long long Id)
-    {
-        id = Id;
-    }
-    long long get_id()
-    {
-        return id;
-    }
+
 };
 
 
