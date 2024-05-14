@@ -3,7 +3,6 @@
 #include <vector>
 
 
-
 class Client 
 {
 private:
@@ -24,7 +23,7 @@ private:
         {"Crime and Punishment", "Fyodor Dostoevsky", 1850, 25}
     };
     Book politicalBooks[5] = {
-        {"The Republic","Plato",1980 , 9.5},
+        {"The president of Mixico", "Khaled Adel", 2024 ,49.99},
         {"The Prince","Niccolo Machiavelli", 1832, 11.30},
         {"Leviathan","Thomas Hobbes", 1651, 4.6},
         {"On Liberty","John Stuart Mill", 1859,15.23},
@@ -79,7 +78,6 @@ public:
 private:
 
     void showCategories() {
-
         std::cout << "\n================================================\n";
         std::cout << "                   Categories: \n";
         std::cout << "================================================\n";
@@ -105,21 +103,18 @@ private:
             std::cout << "\n================================================\n";
             std::cout << "                  Literary Books                 \n";
             std::cout <<   "================================================\n";
-
             showBooks(literaryBooks);
             break;
         case 2:
             std::cout << "\n================================================\n";
             std::cout << "                  Political Books                 \n";
             std::cout <<   "================================================\n";
-
             showBooks(politicalBooks);
             break;
         case 3:
             std::cout << "\n================================================\n";
             std::cout << "                  Scientific Books                \n";
             std::cout <<   "================================================\n";
-
             showBooks(scientificBooks);
             break;
         default:
@@ -131,8 +126,6 @@ private:
 
     void showBooks(Book bookType[]) {
 
-
-       // int numOfBorrowedBooks = 0;
         for (int i = 0; i < 5; i++)
         {
             std::cout << i + 1  << ". " << bookType[i].name << '\n';
@@ -141,15 +134,12 @@ private:
         std::cout << "Which book will you buy: ";
         int bookNum;
 
-        do
-        {
             std::cin >> bookNum;
             std::cout << "================================================\n\n\n";
             if (bookNum < 1  || bookNum > 5)
             {
                 std::cout << "Choose a book between (1,5): ";
             }
-        } while (bookNum < 1  || bookNum > 5);
        
         std::cout << '\n';
         showBookDetails(bookType, bookNum - 1);
@@ -157,7 +147,7 @@ private:
     }
 
     void showBookDetails(Book booktype[], int bookNum) {
-
+       
         /*
         Book name: ---
         Book auther: ---
@@ -168,7 +158,7 @@ private:
         std::cout << "Book name: " << booktype[bookNum].name << '\n';
         std::cout << "Book auther: " << booktype[bookNum].auther << '\n';
         std::cout << "Book year of release: " << booktype[bookNum].releaseYear << '\n';
-        std::cout << "Book price: " << booktype[bookNum].price << '\n';
+        std::cout << "Book price: " << booktype[bookNum].price << " $" << '\n';
         std::cout << "================================================\n";
         
         std::cout << "\n------------------------------------------------\n";
@@ -228,7 +218,7 @@ private:
         default:
             break;
         }
-
+        
     }
     void takePersonInfo() {
 

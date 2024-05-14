@@ -1,25 +1,19 @@
 #pragma once
 #include <iostream>
 #include "Librarian.h"
+#include "Client.h"
 
 class HomePage
 {
-
-private:
-
-
 public:
 
-    HomePage() {
-
+    HomePage() 
+    {
         std::cout << "------------------- Library --------------------\n";
-        std::cout << "     1.Client                   2.Librarian\n";
+        std::cout << "     1.Client                   2.Librarian     \n";
         std::cout << "------------------------------------------------\n";
-
         std::cout << "Your choice: ";
-
         int choice;
-
         do
         {
             std::cin >> choice;
@@ -33,7 +27,7 @@ public:
                 break;
             case 2:
                 std::cout << '\n';
-                new Employee();
+                hire();
                 break;
             default:
                 std::cout << "Choose a number between (1,2): ";

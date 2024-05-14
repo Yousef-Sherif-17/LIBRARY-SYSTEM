@@ -1,14 +1,6 @@
 #include <iostream>
 #include "HomePage.h"
-
-
-
-
-int main()
-{
-
-	
-	
+int main() {
 	HomePage();
 }
 
