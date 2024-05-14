@@ -1,7 +1,5 @@
 #include <iostream>
-#include "HomePage.h"
+#include "MainMenu.h"
 int main() {
-	HomePage();
-	
+	MainMenu();
 }
-
