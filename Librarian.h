@@ -38,6 +38,9 @@ private:
     int numEmployees;
 
 public:
+
+
+
     Company() {
         numEmployees = 0;
     }
@@ -71,6 +74,7 @@ public:
                 break;
             }
         }
+        
               
     }
 

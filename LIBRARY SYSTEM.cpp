@@ -2,5 +2,6 @@
 #include "HomePage.h"
 int main() {
 	HomePage();
+	
 }
 

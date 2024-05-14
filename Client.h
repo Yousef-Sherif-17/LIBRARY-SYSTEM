@@ -218,7 +218,7 @@ private:
         default:
             break;
         }
-        
+
     }
     void takePersonInfo() {
 
