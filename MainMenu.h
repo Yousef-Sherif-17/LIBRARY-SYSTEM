@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include <iostream>
 #include "Manager.h"
@@ -7,7 +8,7 @@ class MainMenu{
 
 public:
 
-    MainMenu();
+    
     
 };
-
+*/

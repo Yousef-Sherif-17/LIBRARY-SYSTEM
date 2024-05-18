@@ -44,7 +44,7 @@ private:
     std::vector<long> phoneNumber;
 public:
 
-
+    static void MainMenu();
 
     Customer();
     

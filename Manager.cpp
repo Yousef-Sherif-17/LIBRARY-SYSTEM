@@ -3,10 +3,13 @@
 Company::Company() {
 
     numEmployees = 0;
+    
 }
 
-void Company::hire(string name, int age, double salary) {
-    if (numEmployees < 4) {
+void Company::hire(string name, int age, double salary)
+{
+    if (numEmployees < 4)
+    {
         employees[numEmployees] = new Employee(name, age, salary);
         numEmployees++;
 
@@ -15,7 +18,8 @@ void Company::hire(string name, int age, double salary) {
         int choice;
         cin >> choice;
 
-        switch (choice) {
+        switch (choice)
+        {
 
         case 1:
             hireNewEmployee();
@@ -36,15 +40,18 @@ void Company::hire(string name, int age, double salary) {
 
 }
 
-void Company::fire() {
+void Company::fire()
+{
 
     showEmployees();
     int choice;
     cout << "Enter the index of the employee you want to fire: ";
     cin >> choice;
-    if (choice >= 0 && choice < numEmployees) {
+    if (choice >= 0 && choice < numEmployees)
+    {
         delete employees[choice];
-        for (int i = choice; i < numEmployees - 1; ++i) {
+        for (int i = choice; i < numEmployees - 1; ++i)
+        {
             employees[i] = employees[i + 1];
         }
         numEmployees--;
@@ -55,16 +62,19 @@ void Company::fire() {
     }
 }
 
-void Company::showEmployees() {
+void Company::showEmployees()
+{
 
     cout << "Employees:\n";
-    for (int i = 0; i < numEmployees; ++i) {
+    for (int i = 0; i < numEmployees; ++i)
+    {
 
         cout << i << ". Name: " << employees[i]->getName() << ", Age: " << employees[i]->getAge() << ", Salary: " << employees[i]->getSalary() << "\n";
     }
 }
 
-void Company::hireNewEmployee() {
+void Company::hireNewEmployee()
+{
 
     string name;
     int age;

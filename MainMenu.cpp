@@ -1,6 +1,6 @@
+/*
 #include "MainMenu.h"
-
-MainMenu::MainMenu() {
+Customer::MainMenu() {
     std::cout << "------------------- Library --------------------\n";
     std::cout << "     1.Client                   2.Librarian     \n";
     std::cout << "------------------------------------------------\n";
@@ -31,3 +31,4 @@ MainMenu::MainMenu() {
 
 }
 
+*/

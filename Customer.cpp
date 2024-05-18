@@ -1,4 +1,48 @@
 ﻿#include "Customer.h"
+#include "Manager.h"
+
+void Exit()
+{
+    std::cout << "\n==========================\n";
+    std::cout << "    Visit Us Again <3\n";
+    std::cout << "==========================\n";
+}
+Company c1;
+void Customer::MainMenu() {
+    std::cout << "------------------- Library --------------------\n";
+    std::cout << "      1.Customer                  2.Librarian   \n";
+    std::cout << "      3.Exit                                    \n";
+    std::cout << "------------------------------------------------\n";
+    std::cout << "Your choice: ";
+    int choice;
+    do
+    {
+        std::cin >> choice;
+        std::cout << "------------------------------------------------\n\n\n";
+
+        switch (choice) 
+        {
+        case 1:
+            std::cout << '\n';
+            new Customer();
+            break;
+        case 2:
+            std::cout << '\n';
+           // c1.hire();
+           break;
+        case 3:
+            Exit();
+        default:
+            std::cout << "Choose a number between (1,2,3): ";
+            break;
+        }
+
+    } while (choice < 1 || choice > 3);
+
+
+}
+
+
 
 Customer::Customer() {
 
@@ -14,13 +58,9 @@ Customer::Customer() {
         case 1:
             showCategories();
         case 2:
-
             break;
-
         case 3:
-            std::cout << "\n==========================\n";
-            std::cout << "    Visit Us Again <3\n";
-            std::cout << "==========================\n";
+            Exit();
             break;
         default:
             break;
@@ -28,8 +68,8 @@ Customer::Customer() {
     } while (choice < 1 || choice > 3);
 }
 
-void Customer::showCategories() {
-
+void Customer::showCategories() 
+{
     std::cout << "\n================================================\n";
     std::cout << "                   Categories: \n";
     std::cout << "================================================\n";
@@ -114,7 +154,6 @@ void Customer::showBookDetails(Book booktype[], int bookNum) {
     std::cout << "================================================\n";
 
     std::cout << "\n------------------------------------------------\n";
-
     std::cout << "  Do you want to buy this book?\n";
     std::cout << "   1.Yes               2.No\n";
     std::cout << "------------------------------------------------\n";
@@ -123,8 +162,8 @@ void Customer::showBookDetails(Book booktype[], int bookNum) {
     std::cin >> choice;
     std::cout << "------------------------------------------------\n\n\n";
 
-    switch (choice) {
-
+    switch (choice) 
+    {
     case 1:
         // Taking user info
         //std::cout << "You bought " << booktype[bookNum].name << ".\n\n";
@@ -143,12 +182,10 @@ void Customer::showBookDetails(Book booktype[], int bookNum) {
     default:
         break;
     }
-
-
 }
 
-void Customer::buyAgain() {
-
+void Customer::buyAgain() 
+{
     std::cout << "------------------------------------------------\n";
     std::cout << "  Do you want to buy another book?\n";
     std::cout << "     1.Yes               2.No\n";
@@ -158,8 +195,8 @@ void Customer::buyAgain() {
     std::cin >> again;
     std::cout << "------------------------------------------------\n\n\n";
 
-    switch (again) {
-
+    switch (again) 
+    {
     case 1:
         showCategories();
         break;
@@ -167,7 +204,6 @@ void Customer::buyAgain() {
         std::cout << "================================================\n";
         std::cout << "=           Thank You For Visiting Us          =\n";
         std::cout << "================================================\n";
-
         break;
     default:
         break;
@@ -175,8 +211,8 @@ void Customer::buyAgain() {
 
 }
 
-void Customer::takePersonInfo() {
-
+void Customer::takePersonInfo() 
+{
     std::cout << "Enter your name: ";
     std::string personName;
     std::cin >> personName;

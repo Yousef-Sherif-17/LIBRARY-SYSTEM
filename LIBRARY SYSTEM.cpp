@@ -1,5 +1,6 @@
 #include <iostream>
-#include "MainMenu.h"
-int main() {
-	MainMenu();
+#include "Customer.h"
+int main()
+{
+	Customer::MainMenu();
 }
