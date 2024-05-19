@@ -1,73 +1,33 @@
 ﻿#include "Customer.h"
 #include "Manager.h"
 
-void Exit()
-{
-    std::cout << "\n==========================\n";
-    std::cout << "    Visit Us Again <3\n";
-    std::cout << "==========================\n";
-}
-Company c1;
-void Customer::MainMenu() {
-    std::cout << "------------------- Library --------------------\n";
-    std::cout << "      1.Customer                  2.Librarian   \n";
-    std::cout << "      3.Exit                                    \n";
-    std::cout << "------------------------------------------------\n";
-    std::cout << "Your choice: ";
-    int choice;
-    do
-    {
-        std::cin >> choice;
-        std::cout << "------------------------------------------------\n\n\n";
-
-        switch (choice) 
-        {
-        case 1:
-            std::cout << '\n';
-            new Customer();
-            break;
-        case 2:
-            std::cout << '\n';
-           // c1.hire();
-           break;
-        case 3:
-            Exit();
-        default:
-            std::cout << "Choose a number between (1,2,3): ";
-            break;
-        }
-
-    } while (choice < 1 || choice > 3);
-
-
-}
-
-
-
+// Constructors
 Customer::Customer() {
 
     std::cout << "------------------------------------------------\n";
-    std::cout << " 1. Buy a book.   2. Search a book.   3. Exit.\n";
+    std::cout << " 1.Buy a book.   2.Search a book.   3.Back.\n";
     std::cout << "------------------------------------------------\n";
     std::cout << "Your choice: ";
     int choice;
-    std::cin >> choice;
-    std::cout << "------------------------------------------------\n\n\n";
     do {
+        std::cin >> choice;
         switch (choice) {
         case 1:
             showCategories();
         case 2:
             break;
         case 3:
-            Exit();
+            mainMenu();
             break;
         default:
+            cout << "\nInvalid Input!\n";
+            cout << "Choose a number between (1-3): ";
             break;
         }
     } while (choice < 1 || choice > 3);
 }
 
+// Functions
 void Customer::showCategories() 
 {
     std::cout << "\n================================================\n";
@@ -211,7 +171,7 @@ void Customer::buyAgain()
 
 }
 
-void Customer::takePersonInfo() 
+void Customer::takePersonInfo() // These function gonna go to borrow section 
 {
     std::cout << "Enter your name: ";
     std::string personName;
@@ -230,4 +190,46 @@ void Customer::takePersonInfo()
     std::cout << "================================================\n\n\n";
 
     buyAgain();
+}
+
+// General fucntions
+void Customer::mainMenu() {
+    std::cout << "------------------- Library --------------------\n";
+    std::cout << "      1.Customer                  2.Librarian   \n";
+    std::cout << "      3.Exit                                    \n";
+    std::cout << "------------------------------------------------\n";
+    std::cout << "Your choice: ";
+    int choice;
+    do
+    {
+        std::cin >> choice;
+        std::cout << "------------------------------------------------\n\n\n";
+
+        switch (choice)
+        {
+        case 1:
+            std::cout << '\n';
+            new Customer();
+            break;
+        case 2:
+            std::cout << '\n';
+            new Manager();
+            break;
+        case 3:
+            Customer::exit();
+        default:
+            std::cout << "Choose a number between (1-3): ";
+            break;
+        }
+
+    } while (choice < 1 || choice > 3);
+
+
+}
+
+void Customer::exit()
+{
+    std::cout << "\n==========================\n";
+    std::cout << "    Visit Us Again <3\n";
+    std::cout << "==========================\n";
 }

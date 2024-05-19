@@ -3,45 +3,24 @@
 #include "Employee.h"
 using namespace std;
 
-class Company {
+class Manager {
 
 private:
-    Employee* employees[4];
-    int numEmployees;
+
+    int employeesNum = 2;
+    Employee* employees = new Employee[employeesNum];
 
 public:
 
+    Manager();
 
-
-    Company();
-
-    void hire(string name, int age, double salary);
-    
-
-    void fire();
-   
+    void managerPage();
 
     void showEmployees();
-   
+    
+    void hire();
 
-    void hireNewEmployee();
+    void fire();
     
 };
 
-
-    /*
-    void hireMenu() {
-        string name;
-        int age;
-        double salary;
-
-        cout << "Enter the name of the employee: ";
-        cin >> name;
-        cout << "Enter the age of the employee: ";
-        cin >> age;
-        cout << "Enter the salary of the employee: ";
-        cin >> salary;
-
-        hire(name, age, salary);
-    }
-    */

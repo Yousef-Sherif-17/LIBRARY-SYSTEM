@@ -1,79 +1,92 @@
 #include "Manager.h"
+#include "Customer.h"
+#include "Employee.h"
 
-Company::Company() {
+Manager::Manager() {
 
-    numEmployees = 0;
-    
+    managerPage();
+
 }
 
-void Company::hire(string name, int age, double salary)
+void Manager::managerPage()
 {
-    if (numEmployees < 4)
-    {
-        employees[numEmployees] = new Employee(name, age, salary);
-        numEmployees++;
 
-        cout << "     1.Hire                   2.Fire     \n";
-        cout << "     3.Show Employees         4.Back     \n";
+
+
+    if (employeesNum <= 4)
+    {
+        cout << "     1.Show Employees                   2.Hire\n";
+        cout << "     3.Fire                             4.Back\n";
+
         int choice;
-        cin >> choice;
-
-        switch (choice)
+        do
         {
-
-        case 1:
-            hireNewEmployee();
-            break;
-        case 2:
-            fire();
-            break;
-        case 3:
-            showEmployees();
-            break;
-        case 4:
-            //HomePage();
-        default:
-            break;
-        }
-    }
-
-
-}
-
-void Company::fire()
-{
-
-    showEmployees();
-    int choice;
-    cout << "Enter the index of the employee you want to fire: ";
-    cin >> choice;
-    if (choice >= 0 && choice < numEmployees)
-    {
-        delete employees[choice];
-        for (int i = choice; i < numEmployees - 1; ++i)
-        {
-            employees[i] = employees[i + 1];
-        }
-        numEmployees--;
-        cout << "Employee successfully fired.\n";
+            cin >> choice;
+            switch (choice)
+            {
+            case 1:
+                showEmployees();
+                break;
+            case 2:
+                hire();
+                break;
+            case 3:
+                fire();
+                break;
+            case 4:
+                Customer::mainMenu();
+                break;
+            default:
+                cout << "\nInvalid Input!\n";
+                cout << "Choose a number between (1-4): ";
+                break;
+            }
+        } while (choice < 1 || choice >  4);
     }
     else {
-        cout << "Invalid index.\n";
+        cout << "     1.Show Employees                   2.Fire\n";
+        cout << "     3.Back\n";
+
+        int choice;
+        do
+        {
+            cin >> choice;
+            switch (choice)
+            {
+            case 1:
+                showEmployees();
+                break;
+            case 2:
+                fire();
+                break;
+            case 3:
+                fire();
+                break;
+            case 4:
+                Customer::mainMenu();
+                break;
+            default:
+                cout << "\nInvalid Input!\n";
+                cout << "Choose a number between (1-4): ";
+                break;
+            }
+        } while (choice < 1 || choice > 3);
+
     }
+
 }
 
-void Company::showEmployees()
+void Manager::showEmployees()
 {
 
     cout << "Employees:\n";
-    for (int i = 0; i < numEmployees; ++i)
+    for (int i = 0; i < employeesNum; ++i)
     {
-
-        cout << i << ". Name: " << employees[i]->getName() << ", Age: " << employees[i]->getAge() << ", Salary: " << employees[i]->getSalary() << "\n";
+        cout << "Employee #" << i + 1 << ": " << 
     }
 }
 
-void Company::hireNewEmployee()
+void Manager::hire()
 {
 
     string name;
@@ -82,10 +95,33 @@ void Company::hireNewEmployee()
 
     cout << "Enter the name of the new employee: ";
     cin >> name;
+    
     cout << "Enter the age of the new employee: ";
     cin >> age;
     cout << "Enter the salary of the new employee: ";
     cin >> salary;
 
-    hire(name, age, salary);
 }
+
+void Manager::fire()
+{
+
+    showEmployees();
+    int choice;
+    cout << "Enter the index of the employee you want to fire: ";
+    cin >> choice;
+    if (choice >= 0 && choice < employeesNum)
+    {
+        delete employees[choice];
+        for (int i = choice; i < employeesNum - 1; ++i)
+        {
+            employees[i] = employees[i + 1];
+        }
+        employeesNum--;
+        cout << "Employee successfully fired.\n";
+    }
+    else {
+        cout << "Invalid index.\n";
+    }
+}
+

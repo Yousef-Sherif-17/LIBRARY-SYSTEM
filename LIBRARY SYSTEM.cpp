@@ -2,5 +2,5 @@
 #include "Customer.h"
 int main()
 {
-	Customer::MainMenu();
+	Customer::mainMenu();
 }

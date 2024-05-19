@@ -38,13 +38,13 @@ private:
     };
 
 
-    // Client data
+    // Customers data
     std::vector<std::string> name;
     std::vector<long long> id;
     std::vector<long> phoneNumber;
 public:
 
-    static void MainMenu();
+    static void mainMenu();
 
     Customer();
     
@@ -54,15 +54,15 @@ public:
 private:
 
     void showCategories();
-    
 
     void showBooks(Book bookType[]);
-    
 
     void showBookDetails(Book booktype[], int bookNum);
     
     void buyAgain();
     
     void takePersonInfo();
+
+    static void exit();
     
 };
