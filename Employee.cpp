@@ -2,7 +2,6 @@
 
 Employee::Employee() {
 
-	Employee::
 
 
 }

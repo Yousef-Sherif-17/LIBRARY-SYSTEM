@@ -1,14 +1,15 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Employee.h"
+
 using namespace std;
 
 class Manager {
 
 private:
 
-    int employeesNum = 2;
-    Employee* employees = new Employee[employeesNum];
+    static vector <Employee> employees;
 
 public:
 
@@ -19,6 +20,8 @@ public:
     void showEmployees();
     
     void hire();
+
+    void updateEmployeeData();
 
     void fire();
     
