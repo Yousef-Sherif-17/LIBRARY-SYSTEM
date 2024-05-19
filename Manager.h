@@ -1,29 +1,25 @@
+#pragma once
+#include "Employee.h"
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Employee.h"
 
 using namespace std;
 
 class Manager {
-
 private:
-
-    static vector <Employee> employees;
+  static vector<Employee> employees;
 
 public:
+  Manager();
 
-    Manager();
+  void managerPage();
 
-    void managerPage();
+  void showEmployees();
 
-    void showEmployees();
-    
-    void hire();
+  void hire();
 
-    void updateEmployeeData();
+  void updateEmployeeData();
 
-    void fire();
-    
+  void fire();
 };
-
