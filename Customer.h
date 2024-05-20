@@ -1,3 +1,6 @@
+/*#ifndef LIBRARY_SYSTEM_CUSTOMER_H
+#define LIBRARY_SYSTEM_CUSTOMER_H
+*/
 #pragma once
 #include <iostream>
 #include <vector>
@@ -66,3 +69,4 @@ public:
   Customer();
 
 };
+//#endif

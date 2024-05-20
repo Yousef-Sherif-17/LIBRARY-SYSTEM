@@ -128,6 +128,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="book.cpp" />
+    <ClCompile Include="book.h" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="Library System.cpp" />
     <ClCompile Include="Employee.cpp" />

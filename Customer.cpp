@@ -1,23 +1,32 @@
-﻿#include "Customer.h"
-#include "Manager.h"
-
+﻿#include "Manager.h"
+#include "Customer.h"
+#include "book.h"
 // Constructors
 Customer::Customer() {
 
     std::cout << "------------------------------------------------\n";
-    std::cout << "      1.Buy a book.             2.Search a book.\n";
+    std::cout << "      1.Buy a book.             2.borrow a book.\n";
     std::cout << "      3.Return a book.          4.Back.\n";
     std::cout << "------------------------------------------------\n";
     std::cout << "Your choice: ";
     int choice;
+    book myLibrary;
+
+ 
     do {
         std::cin >> choice;
         switch (choice) {
         case 1:
             showCategories();
         case 2:
+           
+                myLibrary.borrow_section();
+            
             break;
         case 3:
+            
+                myLibrary.return_section();
+            
             break;
         case 4:
             mainMenu();
