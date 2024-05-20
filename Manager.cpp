@@ -84,11 +84,13 @@ void Manager::showEmployees() {
   cout << "Enter any key to back ";
   string temp;
   cin >> temp;
-
   managerPage();
 }
 
 void Manager::hire() {
+
+    // You need to ensure that you will hire a new Employee
+
   cout << "======== Hiring a new Employee ========\n\n";
 
   cout << "Enter the name of the new employee: ";
@@ -104,10 +106,43 @@ void Manager::hire() {
   cin >> salary;
 
   employees.push_back(Employee(name, age, salary));
-  cout << employees.back().getName() << " has become a new employee.\n";
+  cout << employees.back().getName() << " has become a new employee.\n\n";
+
+  cout << "Enter any key to back ";
+  string temp;
+  cin >> temp;
+  managerPage();
+
 }
 
-void Manager::updateEmployeeData() {}
+void Manager::updateEmployeeData() {
+
+
+    cout << "Which Employee data do you want to update?\n\n";
+    for (int i = 0; i < employees.size(); ++i) {
+        cout << i + 1 << ". " << employees.at(i).getName() << endl;
+    }
+    cout << employees.size() + 1 << ". Back\n";
+
+    int choice;
+    do {
+        cout << "Your Choice: ";
+        cin >> choice;
+
+        if (choice == employees.size() + 1) {
+            managerPage();
+        }
+        else if (choice > 0 || choice < employees.size() + 1) {
+            // Updating existing employee logic
+
+        }
+        else {
+            cout << "\nInvalid Input!\n";
+        }
+    } while (choice < 0 || choice > employees.size() + 1);
+
+
+}
 
 void Manager::fire() {
   cout << "Which one do you want to FIRE :-\n\n";
@@ -117,7 +152,6 @@ void Manager::fire() {
   cout << employees.size() + 1 << ". Back\n\n";
 
   int choice;
-
   do {
     cout << "Your Choice: ";
     cin >> choice;
@@ -125,29 +159,16 @@ void Manager::fire() {
     if (choice == employees.size() + 1) {
       managerPage();
     } else if (choice > 0 || choice < employees.size() + 1) {
-        // Make fire logic on the array
+        // Make fire logic on the vector
+        cout << "Done! " << employees.at(choice - 1).getName() << " has been FIRED\n\n";
+        employees.erase(employees.begin() + choice - 1);
+
+        cout << "Enter any key to back ";
+        string temp;
+        cin >> temp;
+        managerPage();
     } else {
       cout << "\nInvalid Input!\n";
     }
-  } while (choice > 0 || choice <= employees.size() + 1);
-
-  /*
-  showEmployees();
-  int choice;
-  cout << "Enter the index of the employee you want to fire: ";
-  cin >> choice;
-  if (choice >= 0 && choice < employeesNum)
-  {
-      delete employeesArr;
-      for (int i = choice; i < employeesNum - 1; ++i)
-      {
-          employeesArr[i] = employeesArr[i + 1];
-      }
-      employeesNum--;
-      cout << "Employee successfully fired.\n";
-  }
-  else {
-      cout << "Invalid index.\n";
-  }
-  */
+  } while (choice < 0 || choice > employees.size() + 1);
 }
