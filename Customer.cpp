@@ -28,7 +28,7 @@ Customer::Customer() {
 }
 
 // Functions
-void Customer::showCategories() 
+void Customer::showCategories()
 {
     std::cout << "\n================================================\n";
     std::cout << "                   Categories: \n";
@@ -79,7 +79,6 @@ void Customer::showCategories()
 void Customer::showBooks(Book bookType[]) {
 
     for (int i = 0; i < 5; i++) {
-
         std::cout << i + 1 << ". " << bookType[i].name << '\n';
     }
     std::cout << "================================================\n";
@@ -89,7 +88,6 @@ void Customer::showBooks(Book bookType[]) {
     std::cin >> bookNum;
     std::cout << "================================================\n\n\n";
     if (bookNum < 1 || bookNum > 5) {
-
         std::cout << "Choose a book between (1,5): ";
     }
 
@@ -122,7 +120,7 @@ void Customer::showBookDetails(Book booktype[], int bookNum) {
     std::cin >> choice;
     std::cout << "------------------------------------------------\n\n\n";
 
-    switch (choice) 
+    switch (choice)
     {
     case 1:
         // Taking user info
@@ -144,7 +142,7 @@ void Customer::showBookDetails(Book booktype[], int bookNum) {
     }
 }
 
-void Customer::buyAgain() 
+void Customer::buyAgain()
 {
     std::cout << "------------------------------------------------\n";
     std::cout << "  Do you want to buy another book?\n";
@@ -155,7 +153,7 @@ void Customer::buyAgain()
     std::cin >> again;
     std::cout << "------------------------------------------------\n\n\n";
 
-    switch (again) 
+    switch (again)
     {
     case 1:
         showCategories();
@@ -171,7 +169,7 @@ void Customer::buyAgain()
 
 }
 
-void Customer::takePersonInfo() // These function gonna go to borrow section 
+void Customer::takePersonInfo() // These function gonna go to borrow section
 {
     std::cout << "Enter your name: ";
     std::string personName;
@@ -221,7 +219,6 @@ void Customer::mainMenu() {
             std::cout << "Choose a number between (1-3): ";
             break;
         }
-
     } while (choice < 1 || choice > 3);
 
 
