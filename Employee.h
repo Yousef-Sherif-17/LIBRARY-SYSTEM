@@ -5,7 +5,9 @@
 using namespace std;
 
 class Employee {
+
 private:
+
     string name;
     int age;
     double salary;
@@ -26,4 +28,3 @@ public:
     int getAge();
     double getSalary();
 };
-

@@ -6,12 +6,15 @@
 
 using namespace std;
 
-class Manager {
+class Manager 
+{
 private:
-  static vector<Employee> employees;
+
+	static vector<Employee> employees;
 
 public:
-  Manager();
+  
+	Manager();
 
   void managerPage();
 

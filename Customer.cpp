@@ -5,7 +5,8 @@
 Customer::Customer() {
 
     std::cout << "------------------------------------------------\n";
-    std::cout << " 1.Buy a book.   2.Search a book.   3.Back.\n";
+    std::cout << "      1.Buy a book.             2.Search a book.\n";
+    std::cout << "      3.Return a book.          4.Back.\n";
     std::cout << "------------------------------------------------\n";
     std::cout << "Your choice: ";
     int choice;
@@ -17,6 +18,8 @@ Customer::Customer() {
         case 2:
             break;
         case 3:
+            break;
+        case 4:
             mainMenu();
             break;
         default:
@@ -70,6 +73,7 @@ void Customer::showCategories()
             showBooks(scientificBooks);
             break;
         default:
+            std::cout << "Choose a number between (1-3): ";
             break;
         }
     } while (categoryChoice < 1 || categoryChoice > 3);
@@ -133,11 +137,15 @@ void Customer::showBookDetails(Book booktype[], int bookNum) {
         std::cout << '\n';
         break;
     case 2:
+        Customer::mainMenu();
+        /*
         std::cout << "================================================\n";
         std::cout << "=                  GO TO HELL!                 =\n";
         std::cout << "================================================\n";
+        */
         break;
     default:
+        std::cout << "Choose a number between (1-2): ";
         break;
     }
 }
@@ -159,11 +167,16 @@ void Customer::buyAgain()
         showCategories();
         break;
     case 2:
+        Customer::mainMenu();
+    
+        /*
         std::cout << "================================================\n";
         std::cout << "=           Thank You For Visiting Us          =\n";
         std::cout << "================================================\n";
+        */
         break;
     default:
+        std::cout << "Choose a number between (1-2): ";
         break;
     }
 
@@ -202,7 +215,8 @@ void Customer::mainMenu() {
     {
         std::cin >> choice;
         std::cout << "------------------------------------------------\n\n\n";
-
+        int password = 1234;
+        int pass;
         switch (choice)
         {
         case 1:
@@ -210,11 +224,19 @@ void Customer::mainMenu() {
             new Customer();
             break;
         case 2:
+            std::cout << "------------------------------------------------\n";
+            std::cout << "Enter the password: ";
+            std::cin >> pass;
+            std::cout << "------------------------------------------------\n\n";
+            if (pass==password) {
             std::cout << '\n';
             new Manager();
+            }
+            else Customer::mainMenu();
             break;
         case 3:
             Customer::exit();
+            break;
         default:
             std::cout << "Choose a number between (1-3): ";
             break;
