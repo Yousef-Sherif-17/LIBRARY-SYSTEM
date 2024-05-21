@@ -178,7 +178,7 @@ void Manager::updateEmployeeData()
                 cin >> newName;
                 employees.at(choice - 1).setName(newName);
                 std::cout << "------------------------------------------------\n";
-                cout << employees.at(choice).getName() << "had been updated!" << endl;
+                cout << employees.at(choice - 1).getName() << " had been updated!" << endl;
                 std::cout << "------------------------------------------------\n";
                 managerPage();
                 break;
@@ -187,7 +187,7 @@ void Manager::updateEmployeeData()
                 cin >> newAge;
                 employees.at(choice - 1).setAge(newAge);
                 std::cout << "------------------------------------------------\n";
-                cout << employees.at(choice).getAge() << "had been updated!" << endl;
+                cout << employees.at(choice - 1).getAge() << " had been updated!" << endl;
                 std::cout << "------------------------------------------------\n";
                 managerPage();
                 break;
@@ -196,7 +196,7 @@ void Manager::updateEmployeeData()
                 cin >> newSalary;
                 employees.at(choice - 1).setSalary(newSalary);
                 std::cout << "------------------------------------------------\n";
-                cout << employees.at(choice).getSalary() << "had been updated!" << endl;
+                cout << employees.at(choice - 1).getSalary() << " had been updated!" << endl;
                 std::cout << "------------------------------------------------\n";
                 managerPage();
                 break;
