@@ -27,7 +27,7 @@ public:
 
 private:
     static const int bookSize = 10; // Made it a constant static member
-    static B_books objects[bookSize]; // Declare objects array as static
+    static  B_books objects[bookSize]; // Declare objects array as static
     static B_books b_objects[bookSize];
 
     void print_books(B_books* arr);

@@ -172,7 +172,6 @@ void book::borrow_section() {
         //std::cout << "================================================\n";
         //book::takePersonInfo();
         borrow(input);
-        cout << "The book has been borrowed Successfully\n";
         break;
 
     case 2:
@@ -262,15 +261,15 @@ void book::return_section() {
         }
     }
     else {
-        if (num_B(objects) == 1) {
-        }
-        else {
+        //if (num_B(objects) == 1) {
+        //}
+        //else {
             cout << "there is no borrowed books to return\n";
         }
 
-    }
+    
     Customer::mainMenu();
-}
+    }
 /*
 void book::borrow_section() 
 {
