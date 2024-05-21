@@ -21,14 +21,10 @@ Customer::Customer() {
         case 1:
             showCategories();
         case 2:
-           
                 myLibrary.borrow_section();
-            
             break;
         case 3:
-            
                 myLibrary.return_section();
-            
             break;
         case 4:
             mainMenu();
@@ -38,18 +34,19 @@ Customer::Customer() {
             cout << "Choose a number between (1-3): ";
             break;
         }
-    } while (choice < 1 || choice > 3);
+    } while (choice < 1 || choice > 4);
 }
 
 // Functions
 void Customer::showCategories()
 {
+        // "Literary","Political","Scientific"
     std::cout << "\n================================================\n";
     std::cout << "                   Categories: \n";
     std::cout << "================================================\n";
+
     for (int i = 0; i < 3; i++) {
 
-        // "Literary","Political","Scientific"
         std::cout << " [" << i + 1 << "]" << categories[i] << "    ";
     }
     std::cout << "\n================================================\n";
@@ -193,17 +190,19 @@ void Customer::buyAgain()
 // General fucntions
 void Customer::mainMenu() {
     std::cout << "------------------- Library --------------------\n";
-    std::cout << "     1.Customer                 2.Librarian\n";
+    std::cout << "     1.Customer                  2.Manager\n";
     std::cout << "     3.Exit\n";
     std::cout << "------------------------------------------------\n";
     std::cout << "Your choice: ";
     int choice;
     do
     {
+        //Librarian pass
         std::cin >> choice;
         std::cout << "------------------------------------------------\n\n\n";
         int password = 1234;
         int pass;
+
         switch (choice)
         {
         case 1:
@@ -211,18 +210,13 @@ void Customer::mainMenu() {
             new Customer();
             break;
         case 2:
-            
-            std::cout << "------------------------------------------------\n";
-            std::cout << "Enter the password: ";
-            std::cin >> pass;
-            std::cout << "------------------------------------------------\n\n";
-         
-            if (pass==password) 
-            {
-            std::cout << '\n';
+            do {
+                std::cout << "------------------------------------------------\n";
+                std::cout << "Enter the password: ";
+                std::cin >> pass;
+                std::cout << "------------------------------------------------\n\n";
+            } while (pass!= password);
             new Manager();
-            }
-            else Customer::mainMenu();
             break;
         case 3:
             Customer::exit();

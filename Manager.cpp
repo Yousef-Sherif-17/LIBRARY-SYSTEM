@@ -6,7 +6,6 @@
 vector<Employee> Manager::employees;
 
 Manager::Manager() {
-
   employees.push_back(Employee("Ebrahim", 19, 100));
   employees.push_back(Employee("Khaled", 25, 200));
   managerPage();
@@ -121,7 +120,7 @@ void Manager::hire() {
   cout << "================================================\n";
 
   employees.push_back(Employee(name, age, salary));
-  cout << employees.back().getName() << " has become a new employee.\n";
+  cout << employees.back().getName() << " was successfully employed.\n";
   cout << "================================================\n";
   cout << "Enter any key to back ";
   string temp;
@@ -158,9 +157,9 @@ void Manager::updateEmployeeData()
             std::cout << "------------------------------------------------\n";
                  cout << "Which info do you want to change\n";
             std::cout << "------------------------------------------------\n";
-            cout << "1." << employees.at(choice - 1).getName() << endl;
-            cout << "2." << employees.at(choice - 1).getAge() << endl;
-            cout << "3." << employees.at(choice - 1).getSalary() << endl;
+            cout << "1.Name: " << employees.at(choice - 1).getName() << endl;
+            cout << "2.Age:" << employees.at(choice - 1).getAge() << endl;
+            cout << "3.Salary" << employees.at(choice - 1).getSalary() << endl;
             cout << "4." << "Back\n";
             std::cout << "------------------------------------------------\n";
             int updateChoice;
@@ -171,6 +170,7 @@ void Manager::updateEmployeeData()
                 string newName;
                 int newAge;
                 double newSalary;
+
             switch (updateChoice)
             {
             case 1: 
