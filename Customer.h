@@ -45,10 +45,7 @@ private:
       {"On the Origin of Species", "by Charles Darwin", 1988, 16}
   };
 
-  // Customers data
-  std::vector<std::string> name;
-  std::vector<long long> id;
-  std::vector<long> phoneNumber;
+
 
   void showCategories();
 
@@ -58,7 +55,6 @@ private:
 
   void buyAgain();
 
-  void takePersonInfo();
 
   static void exit();
 

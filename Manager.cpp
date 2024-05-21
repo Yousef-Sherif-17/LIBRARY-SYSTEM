@@ -15,9 +15,9 @@ Manager::Manager() {
 void Manager::managerPage() {
 
   if (employees.size() <= 4) {
-      std::cout << "------------------- Manager --------------------\n";
-           cout << "   1.Show Employees              2.Hire\n";
-           cout << "   3.Fire                        4.Update Info\n";
+      std::cout << "\n------------------- Manager --------------------\n";
+           cout << "   1.Show Employees             2.Hire\n";
+           cout << "   3.Fire                       4.Update Info\n";
            cout << "   5.Back\n";
       std::cout << "------------------------------------------------\n";
 
@@ -38,7 +38,7 @@ void Manager::managerPage() {
         fire();
         break;
       case 4:
-          updateEmployeeData();
+       //   updateEmployeeData();
           break;
       case 5:
         Customer::mainMenu();
@@ -66,7 +66,7 @@ void Manager::managerPage() {
         fire();
         break;
       case 3:
-        fire();
+        //updateEmployeeData();
         break;
       case 4:
         Customer::mainMenu();
@@ -130,8 +130,9 @@ void Manager::hire() {
   managerPage();
 
 }
-
-void Manager::updateEmployeeData() {
+/*
+void Manager::updateEmployeeData()
+{
 
     std::cout << "------------------------------------------------\n";
          cout << "Which Employee data do you want to update?\n";
@@ -155,7 +156,7 @@ void Manager::updateEmployeeData() {
         else if (choice > 0 || choice < employees.size() + 1) {
             // Updating existing employee logic
             std::cout << "------------------------------------------------\n";
-            cout << "Which info do you want to change\n";
+                 cout << "Which info do you want to change\n";
             std::cout << "------------------------------------------------\n";
             cout << "1." << employees.at(choice - 1).getName() << endl;
             cout << "2." << employees.at(choice - 1).getAge() << endl;
@@ -184,7 +185,7 @@ void Manager::updateEmployeeData() {
             case 2:
                 cout << "Enter the new Age: ";
                 cin >> newAge;
-                employees.at(updateChoice - 1).setAge(newAge);
+                employees.at(updateChoice -2).setAge(newAge);
                 std::cout << "------------------------------------------------\n";
                 cout << employees.at(choice).getAge() << "hade beed updated!" << endl;
                 std::cout << "------------------------------------------------\n";
@@ -193,7 +194,7 @@ void Manager::updateEmployeeData() {
             case 3:
                 cout << "Enter the new Salary: ";
                 cin >> newSalary;
-                employees.at(updateChoice - 1).setSalary(newSalary);
+                employees.at(updateChoice - (employees.size()+1)).setSalary(newSalary);
                 std::cout << "------------------------------------------------\n";
                 cout << employees.at(choice).getSalary() << "hade beed updated!" << endl;
                 std::cout << "------------------------------------------------\n";
@@ -211,7 +212,7 @@ void Manager::updateEmployeeData() {
 
 
 }
-
+*/
 void Manager::fire() {
   std::cout << "------------------------------------------------\n";
        cout << "Which one do you want to FIRE :-\n";

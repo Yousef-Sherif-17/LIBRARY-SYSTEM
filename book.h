@@ -2,6 +2,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -12,9 +13,15 @@ public:
         string author;
         string date;
 
+
         B_books();
         B_books(string n, string auth, string dt);
     };
+    // Customers data
+    std::vector<std::string> name;
+    std::vector<long long> id;
+    std::vector<long> phoneNumber;
+    void takePersonInfo();
 
     void borrow_section();
     void return_section();
