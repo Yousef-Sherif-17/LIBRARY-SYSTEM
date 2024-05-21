@@ -38,7 +38,7 @@ void Manager::managerPage() {
         fire();
         break;
       case 4:
-       //   updateEmployeeData();
+          updateEmployeeData();
           break;
       case 5:
         Customer::mainMenu();
@@ -66,7 +66,7 @@ void Manager::managerPage() {
         fire();
         break;
       case 3:
-        //updateEmployeeData();
+        updateEmployeeData();
         break;
       case 4:
         Customer::mainMenu();
@@ -130,7 +130,7 @@ void Manager::hire() {
   managerPage();
 
 }
-/*
+
 void Manager::updateEmployeeData()
 {
 
@@ -176,34 +176,33 @@ void Manager::updateEmployeeData()
             case 1: 
                 cout << "Enter the new name: ";
                 cin >> newName;
-                employees.at(updateChoice - 1).setName(newName);
+                employees.at(choice - 1).setName(newName);
                 std::cout << "------------------------------------------------\n";
-                cout << employees.at(choice).getName() << "hade beed updated!" << endl;
+                cout << employees.at(choice).getName() << "had been updated!" << endl;
                 std::cout << "------------------------------------------------\n";
                 managerPage();
                 break;
             case 2:
                 cout << "Enter the new Age: ";
                 cin >> newAge;
-                employees.at(updateChoice -2).setAge(newAge);
+                employees.at(choice - 1).setAge(newAge);
                 std::cout << "------------------------------------------------\n";
-                cout << employees.at(choice).getAge() << "hade beed updated!" << endl;
+                cout << employees.at(choice).getAge() << "had been updated!" << endl;
                 std::cout << "------------------------------------------------\n";
                 managerPage();
                 break;
             case 3:
                 cout << "Enter the new Salary: ";
                 cin >> newSalary;
-                employees.at(updateChoice - (employees.size()+1)).setSalary(newSalary);
+                employees.at(choice - 1).setSalary(newSalary);
                 std::cout << "------------------------------------------------\n";
-                cout << employees.at(choice).getSalary() << "hade beed updated!" << endl;
+                cout << employees.at(choice).getSalary() << "had been updated!" << endl;
                 std::cout << "------------------------------------------------\n";
                 managerPage();
                 break;
             default:
                 break;
             }
-
         }
         else {
             cout << "\nInvalid Input!\n";
@@ -212,7 +211,7 @@ void Manager::updateEmployeeData()
 
 
 }
-*/
+
 void Manager::fire() {
   std::cout << "------------------------------------------------\n";
        cout << "Which one do you want to FIRE :-\n";

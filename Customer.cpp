@@ -99,12 +99,11 @@ void Customer::showBooks(Book bookType[]) {
     std::cout << "================================================\n";
     std::cout << "Which book will you buy: ";
     int bookNum;
-
+    do{
     std::cin >> bookNum;
-    std::cout << "================================================\n\n\n";
-    if (bookNum < 1 || bookNum > 5) {
+    std::cout << "================================================\n";
         std::cout << "Choose a book between (1,5): ";
-    }
+    } while (bookNum < 1 || bookNum > 5);
 
     std::cout << '\n';
     showBookDetails(bookType, bookNum - 1);
@@ -126,7 +125,7 @@ void Customer::showBookDetails(Book booktype[], int bookNum) {
     std::cout << "Book price: " << booktype[bookNum].price << " $" << '\n';
     std::cout << "================================================\n";
 
-    std::cout << "\n------------------------------------------------\n";
+    std::cout << "\n\n------------------------------------------------\n";
     std::cout << "  Do you want to buy this book?\n";
     std::cout << "   1.Yes                 2.No\n";
     std::cout << "------------------------------------------------\n";
@@ -190,7 +189,6 @@ void Customer::buyAgain()
     }
 
 }
-
 
 // General fucntions
 void Customer::mainMenu() {

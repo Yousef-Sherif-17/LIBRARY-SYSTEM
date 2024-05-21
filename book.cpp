@@ -1,9 +1,6 @@
-#include "Book.h"
+﻿#include "Book.h"
 #include "Customer.h"
 #include "Manager.h"
-
-
-
 
 void book::takePersonInfo() // These function gonna go to borrow section
 {
@@ -122,6 +119,159 @@ void book::borrow(int bookNum)
     
 }
 
+void book::borrow_section() {
+    int input, ifBorrow;
+    if (num_B(objects) == 1) { // تحقق مما إذا كان لا توجد كتب متاحة للاستعارة
+        cout << "Ther is no books to borrow!!\n";
+        std::cout << "------------------------------------------------\n\n\n";
+
+        Customer::mainMenu();
+        return; // انتهاء الوظيفة بمجرد عرض الرسالة
+    }
+
+    else {
+    std::cout << "\n\n\n------------------------------------------------\n";
+        std::cout << "Which book would you want to borrow?\n";
+        std::cout << "------------------------------------------------\n";
+        print_books(objects);
+    }
+    do {
+        cout << "Your choice: ";
+        cin >> input;
+        std::cout << "------------------------------------------------\n";
+
+        if (input < 1 || input > num_B(objects))
+        {
+            cout << "\nInvalid Input...Choose a number between(1 - " << num_B(objects) << ")\n";
+        }
+    } while (input < 1 || input > num_B(objects));
+
+    print_book_details(objects, input);
+    std::cout << "------------------------------------------------\n";
+    std::cout << "  Do you want to borrow this book?\n";
+    std::cout << "   1.Yes                    2.No\n";
+    std::cout << "------------------------------------------------\n";
+    do {
+        std::cout << "Your choice: ";
+        std::cin >> ifBorrow;
+        std::cout << "------------------------------------------------\n";
+
+
+        if (ifBorrow < 1 || ifBorrow > 2)
+        {
+            cout << "\nInvalid Input...Choose a number between(1 - 2)";
+        }
+
+    } while (ifBorrow < 1 || ifBorrow > 2);
+
+    switch (ifBorrow)
+    {
+    case 1:
+        //std::cout << "\n\n================================================\n";
+        //std::cout << "      We will collect your personal data     \n";
+        //std::cout << "================================================\n";
+        //book::takePersonInfo();
+        borrow(input);
+        cout << "The book has been borrowed Successfully\n";
+        break;
+
+    case 2:
+        cout << "You will be directed to the MAIN PAGE\n";
+        std::cout << "------------------------------------------------\n\n\n";
+
+        Customer::mainMenu();
+        break;
+    }
+}
+
+void book::return_book(int bookNum)
+{
+    for (int i = 0; i <= bookSize; i++)
+    {
+        if (objects[i].name == "")
+        {
+            objects[i] = b_objects[bookNum - 1];
+            cout << "You returned \"" << objects[i].name << "\" \n";
+            std::cout << "------------------------------------------------\n\n\n";
+            for (int z = bookNum - 1; z < bookSize - 1; z++)
+            {
+                b_objects[z] = b_objects[z + 1];
+            }
+            b_objects[bookSize - 1] = {};
+            break;
+        }
+    }
+}
+
+void book::return_section() {
+    if (num_B(b_objects) > 1) {
+
+        int input, ifReturn;
+        std::cout << "------------------------------------------------\n";
+        if (num_B(b_objects) == 2) {
+            std::cout << "There is an only borrowed book\n";
+            std::cout << "Choose it\n";
+            print_books(b_objects);
+        }
+        else {
+            std::cout << "Which book would you want to return?\n";
+            std::cout << "------------------------------------------------\n";
+            print_books(b_objects);
+        }
+        do {
+            cout << "Your choice: ";
+            cin >> input;
+            std::cout << "------------------------------------------------\n";
+
+            if (input < 1 || input > num_B(b_objects))
+            {
+                cout << "\nInvalid Input...\n";
+            }
+        } while (input < 1 || input > num_B(b_objects));
+
+        print_book_details(b_objects, input);
+        do {
+            std::cout << "------------------------------------------------\n";
+            std::cout << "  Are you sure you want to return this book?\n";
+            std::cout << "   1.Yes                              2.No\n";
+            std::cout << "------------------------------------------------\n";
+            std::cout << "Your choise: ";
+            cin >> ifReturn;
+            std::cout << "------------------------------------------------\n";
+
+            if (ifReturn < 1 || ifReturn > 2)
+            {
+                cout << "Invalid Input...\n";
+            }
+        } while (ifReturn < 1 || ifReturn > 2);
+
+        switch (ifReturn) {
+        case 1:
+            return_book(input);
+            break;
+
+        case 2:
+            std::cout << "\n\n------------------------------------------------\n";
+            std::cout << "This book has not been returned\n";
+            std::cout << "You will be directed to the MAIN\n";
+            std::cout << "------------------------------------------------\n\n\n";
+
+            Customer::mainMenu();
+            break;
+
+        }
+    }
+    else {
+        if (num_B(objects) == 1) {
+        }
+        else {
+            cout << "there is no borrowed books to return\n";
+        }
+
+    }
+    Customer::mainMenu();
+}
+/*
 void book::borrow_section() 
 {
     int input, ifBorrow;
@@ -179,7 +329,8 @@ void book::borrow_section()
         break;
     }
 }
-
+*/
+/*
 void book::return_book(int bookNum) 
 {
     for (int i = 0; i <= bookSize; i++) 
@@ -189,6 +340,7 @@ void book::return_book(int bookNum)
             objects[i] = b_objects[bookNum - 1];
             cout << "You returned \"" << objects[i].name << "\" \n";
             std::cout << "------------------------------------------------\n\n\n";
+            Customer::mainMenu();
             for (int z = bookNum - 1; z < bookSize - 1; z++) 
             {
                 b_objects[z] = b_objects[z + 1];
@@ -198,7 +350,72 @@ void book::return_book(int bookNum)
         }
     }
 }
+*/
+/*
+void book::return_section() {
+    if (num_B(b_objects) > 1) {
 
+        int input, ifReturn;
+        std::cout << "------------------------------------------------\n";
+        std::cout << "Which book would you want to return?\n";
+        std::cout << "------------------------------------------------\n";
+        print_books(b_objects);
+
+        do {
+            cout << "Your choice: ";
+            cin >> input;
+            std::cout << "------------------------------------------------\n";
+
+            if (input < 1 || input > num_B(b_objects))
+            {
+                cout << "\nInvalid Input...\n";
+            }
+        } while (input < 1 || input > num_B(b_objects));
+
+        print_book_details(b_objects, input);
+        do {
+            std::cout << "------------------------------------------------\n";
+            std::cout << "  Are you sure you want to return this book?\n";
+            std::cout << "   1.Yes                              2.No\n";
+            std::cout << "------------------------------------------------\n";
+            std::cout << "Your choise: ";
+            cin >> ifReturn;
+            std::cout << "------------------------------------------------\n";
+
+            if (ifReturn < 1 || ifReturn > 2)
+            {
+                cout << "Invalid Input...\n";
+            }
+        } while (ifReturn < 1 || ifReturn > 2);
+        switch (ifReturn) {
+        case 1:
+            return_book(input);
+            break;
+
+        case 2:
+            std::cout << "\n\n------------------------------------------------\n";
+            std::cout << "This book has not been returned\n";
+            std::cout << "You will be directed to the MAIN\n";
+            std::cout << "------------------------------------------------\n\n\n";
+
+            Customer::mainMenu();
+            break;
+
+        }
+    }
+    else {
+        if (num_B(objects) == 1) {
+        }
+        else {
+        std::cout << "------------------------------------------------\n";
+        cout << "there is no borrowed books to return\n";
+        std::cout << "------------------------------------------------\n\n\n";
+        }
+        Customer::mainMenu();
+    }
+}
+*/
+/*
 void book::return_section() {
     int input, ifReturn;
     std::cout << "------------------------------------------------\n";
@@ -250,3 +467,4 @@ void book::return_section() {
     }
     Customer::mainMenu();
 }
+*/
